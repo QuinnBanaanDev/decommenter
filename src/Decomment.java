@@ -13,6 +13,19 @@ public class Decomment {
         for(int i = 0; i< content.size(); i++) {
             //get string from arraylist
             line = content.get(i);
+            char firstChar = line.charAt(0);
+            switch(firstChar) {
+                case '/':
+                    if (line.charAt(1) == '/' || lang != "py") {
+                        content.remove(i)
+                    }
+                    break;
+                case '#':
+                    if (lang == "py") {
+                        content.remove(i);Quinneke
+
+                    }
+            }
             for(int a = 0; i<line.length(); a++) {
                 b = line.charAt(a);
                 switch(b) {
@@ -48,13 +61,13 @@ public class Decomment {
 
         //File newFile = null;
         try {
-            File newFile = new File(newFileName);
+            File newFile = new File("test1.c");
             newFile.createNewFile();
             FileWriter writeNewFile = new FileWriter(newFile);
             for(int i = 0; i < toWrite.size(); i++) {
                 writeNewFile.write(toWrite.get(i));
             }
-            newFile.renameTo(new File(newFilePath));
+            //newFile.renameTo(new File(newFilePath));
         } catch (IOException exception){
             System.out.println("Something unexpected happened");
             exception.printStackTrace();
